@@ -13,7 +13,7 @@ Dict={    'BASE'    #唯一标识，必须和函数、接口名保持一致
                      'substring':5,                     # 唯一标识的长度+1
                      'input_placeholder':'未输入:',    #输入框主界面的默认提示值
                      'btn_code':[0,1,1,1],         #预留四个按钮，0代表消失，1代表显示，四个按钮分别是[none,encode,decode,copy]
-                     'other_input_code':[1,1,0,0],#预留了四个其他输入框，0代表消失，1代表显示
+                     'other_input_code':[0,0,0,0],#预留了四个其他输入框，0代表消失，1代表显示
                      'other_input_value_text':{'0':['q','参数q'], #其他输入框的 元素：中文名字 （如rsa中的e为额外输入，则填写 e:参数e）
                                                   '1':['e','none'],
                                                   '2':['n','none'],

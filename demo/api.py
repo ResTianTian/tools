@@ -49,6 +49,7 @@ def login():
         return json.dumps(resu, ensure_ascii=False)
 
 @server.route('/BASE', methods=['get', 'post'])
+
 #函数功能：BASE全家桶
 #路径：/BASE
 #输入：
@@ -73,6 +74,7 @@ def BASE():
     text=data['text']              #输入字符串
     typed=data['typed']   #输入base（num），即base的类型
     operator=data['operator']   #加密或者解密
+
    # print(text)
     try:
         if text and typed and operator:
@@ -134,6 +136,7 @@ def BASE():
     except :
         resu = {'code': 10000, 'result':'输入字符集错误。' }
         return json.dumps(resu, ensure_ascii=False)
+
 #函数功能：进制转化
 #路径：/Change_B
 #输入：
@@ -324,7 +327,10 @@ def Caesar():
 #       异常{'code': 10002, 'result':'异常。' }
 @server.route('/fence',methods=['get','post'])
 def fence():
-    text = request.values.get('text')
+    data = request.get_data()
+    data = data.decode('utf-8')
+    data = json.loads(data)
+    text = data['text']
     key = 0
     result={}
     result_str=""
@@ -913,8 +919,7 @@ def Keyboard_B():
 #     except:
 # 	resu = {'code': 10002, 'result': '异常。'}
 # 	return json.dumps(resu, ensure_ascii=False)
-
 def des():
     return
 if __name__ == '__main__':
-    server.run(debug=True, port=8886, host='0.0.0.0')  # 指定端口、host,0.0.0.0代表不管几个网卡，任何ip都可以访问
+    server.run(debug='true' , port=8886, host='0.0.0.0')  # 指定端口、host,0.0.0.0代表不管几个网卡，任何ip都可以访问
